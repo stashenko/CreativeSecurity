@@ -1,0 +1,874 @@
+This is example how permissions, what which permissions do, and what is setted by default (true or false) permissions with * are parent or boss permissions which means it gives few permissions with only one
+ 
+permissions:
+  creativesecurity.*:
+    description: Assign all permissions
+    default: op
+    children:
+      creativesecurity.bypass.*: true
+      creativesecurity.cmd.*: true
+      creativesecurity.creative.attack.creative: true
+      creativesecurity.blockinfo: true
+
+  creativesecurity.creative.attack.creative:
+    descriptions: Allows players in creative mode to attack entities spawned in creative mode
+    default: false
+
+  creativesecurity.bypass.*:
+    description: Allows to do everything in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.inventory.*: true
+      creativesecurity.bypass.action.*: true
+      creativesecurity.bypass.damage.*: true
+      creativesecurity.bypass.break.*: true
+      creativesecurity.bypass.modify.mobspawner: true
+      creativesecurity.bypass.modify.mobspawnersurvival: true
+      creativesecurity.bypass.craft.*: true
+      creativesecurity.bypass.delay.*: true
+      creativesecurity.bypass.use.*: true
+
+  creativesecurity.bypass.break.*:
+    description: Allows creative players to break blocks and non-creative players to break everything placed on creative mode
+    default: false
+    children:
+      creativesecurity.bypass.break.bedrock: true
+      creativesecurity.bypass.break.block: true
+      creativesecurity.bypass.break.vehicle: true
+      creativesecurity.bypass.break.hanging: true
+      creativesecurity.bypass.break.hangingsurvival: true
+      creativesecurity.bypass.break.farmland: true
+      creativesecurity.bypass.break.armorstand: true
+
+  creativesecurity.bypass.delay.*:
+    description: Allows players to bypass all extra delays
+    default: false
+    children:
+      creativesecurity.bypass.delay.creative.*: true
+      creativesecurity.bypass.delay.survival.*: true
+
+  creativesecurity.bypass.delay.creative.*:
+    description: Allows players to bypass all extra delays for creative mode
+    default: false
+    children:
+      creativesecurity.bypass.delay.creative.enderpearl: true
+
+  creativesecurity.bypass.delay.survival.*:
+    description: Allows players to bypass all extra delays for non-creative mode
+    default: false
+    children:
+      creativesecurity.bypass.delay.survival.enderpearl: true
+
+  creativesecurity.blockinfo:
+    description: Allows players to view who placed a creative block in the world while sneaking and right clicking with an spectral arrow in the main hand
+    default: false
+
+  creativesecurity.bypass.delay.creative.enderpearl:
+    description: Allows players to use ender pearls in creative mode without extra delays
+    default: false
+
+  creativesecurity.bypass.delay.survival.enderpearl:
+    description: Allows players to use ender pearls in non-creative mode without extra delays
+    default: false
+
+  creativesecurity.bypass.break.armorstand:
+    description: Allows players in non-creative mode to break and/or modify items stored in armor stands which were placed in creative mode.
+    default: false
+  creativesecurity.bypass.break.bedrock:
+    description: Allows players in creative mode to break bedrocks
+    default: false
+  creativesecurity.bypass.break.block:
+    description: Allows players in non-creative mode to break blocks which was placed by a player in creative mode
+    default: false
+  creativesecurity.bypass.break.vehicle:
+    description: Allows players in non-creative mode to break vehicles which was placed by a player in creative mode
+    default: false
+  creativesecurity.bypass.break.hanging:
+    description: Allows players in non-creative mode to break or change hanging entities which was placed by a player in creative mode
+    default: false
+  creativesecurity.bypass.break.hangingsurvival:
+    description: Allows players in creative mode to break or change item frames which was placed by players outside the creative mode
+    default: false
+  creativesecurity.bypass.break.farmland:
+    description: Allows players in creative mode to destroy farmlands jumping on it
+    default: false
+
+  creativesecurity.bypass.craft.*:
+    description: Allows players to use creative itens on all crafting/processing GUIs
+    default: false
+    children:
+      creativesecurity.bypass.craft.matrix: true
+      creativesecurity.bypass.craft.anvil: true
+      creativesecurity.bypass.craft.enchant: true
+
+  creativesecurity.bypass.craft.matrix:
+    description: Allows players to use creative itens on crafting matrixes (3x3 on workbenchs and 2x2 matrix on player inventory)
+    default: false
+  creativesecurity.bypass.craft.anvil:
+    description: Allows players to use creative itens on anvils
+    default: false
+  creativesecurity.bypass.craft.enchant:
+    description: Allows players to use creative itens on enchantment table
+    default: false
+
+
+  creativesecurity.bypass.use.*:
+    description: Allows to use every item in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.use.enderpearl: true
+      creativesecurity.bypass.use.eyeofender: true
+      creativesecurity.bypass.use.snowball: true
+      creativesecurity.bypass.use.monsteregg: true
+      creativesecurity.bypass.use.flintsteal: true
+      creativesecurity.bypass.use.expbottle: true
+      creativesecurity.bypass.use.egg: true
+      creativesecurity.bypass.use.potion: true
+      creativesecurity.bypass.use.bow: true
+      creativesecurity.bypass.use.marked: true
+      creativesecurity.bypass.use.fishingrod: true
+      creativesecurity.bypass.use.furnaceminecart: true
+      creativesecurity.bypass.use.totem: true
+      creativesecurity.bypass.use.markedblock: true
+      creativesecurity.bypass.use.blockedanvilitem: true
+      creativesecurity.bypass.use.blockedcreative: true
+      creativesecurity.bypass.use.creativeentity: true
+
+  creativesecurity.bypass.use.creativeentity:
+    description: Allows players in non-creative game mode to interact with an entity marked as creative
+    default: false
+  creativesecurity.bypass.use.blockedcreative:
+    description: Allows to use (right/left click blocks, air or entities) an item in creative mode which has been configured to be blocked in the configuration file
+    default: false
+  creativesecurity.bypass.use.blockedanvilitem:
+    description: Allows to use on anvil an item which has been blocked from usage there
+    default: false
+  creativesecurity.bypass.use.markedblock:
+    description: Allows to use machine blocks which were spawned in creative mode
+    default: false
+  creativesecurity.bypass.use.totem:
+    description: Allows players to survive while holding a creative totem of undying on death
+    default: false
+  creativesecurity.bypass.use.enderpearl:
+    description: Allows players to use ender pearls in creative mode
+    default: false
+  creativesecurity.bypass.use.eyeofender:
+    description: Allows players to use eye of enders in creative mode
+    default: false
+  creativesecurity.bypass.use.snowball:
+    description: Allows players to use snowballs in creative mode
+    default: false
+  creativesecurity.bypass.use.monsteregg:
+    description: Allows players to use monster eggs in creative mode
+    default: false
+  creativesecurity.bypass.use.flintsteal:
+    description: Allows players to use flint and steal in creative mode
+    default: false
+  creativesecurity.bypass.use.expbottle:
+    description: Allows players to use experience bottle in creative mode
+    default: false
+  creativesecurity.bypass.use.egg:
+    description: Allows players to use chicken eggs in creative mode
+    default: false
+  creativesecurity.bypass.use.potion:
+    description: Allows players to use potions, splash potions and lingering potions in creative mode
+    default: false
+  creativesecurity.bypass.use.bow:
+    description: Allows players to use bows in creative mode
+    default: false
+  creativesecurity.bypass.use.fishingrod:
+    description: Allows players in creative mode to use fishing rods
+    default: false
+  creativesecurity.bypass.use.furnaceminecart:
+    description: Allows players in creative mode to interact with furnace minecarts
+    default: false
+
+  creativesecurity.bypass.modify.mobspawner:
+    description: Allows players in creative mode to change mob spawners with spawn eggs
+    default: false
+
+  creativesecurity.bypass.modify.mobspawnersurvival:
+    description: Allows players in non-creative mode to change mob spawners with spawn eggs
+    default: false
+
+  creativesecurity.bypass.damage.*:
+    description: Allows to damage all entities in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.damage.animal.*: true
+      creativesecurity.bypass.damage.boss.*: true
+      creativesecurity.bypass.damage.mob.*: true
+      creativesecurity.bypass.damage.golem.*: true
+      creativesecurity.bypass.damage.structure.*: true
+      creativesecurity.bypass.damage.villager: true
+      creativesecurity.bypass.damage.player: true
+
+  creativesecurity.bypass.damage.animal.*:
+    description: Allows to damage all animals in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.damage.animal.horse.*: true
+      creativesecurity.bypass.damage.animal.cow.*: true
+      creativesecurity.bypass.damage.animal.pig: true
+      creativesecurity.bypass.damage.animal.sheep: true
+      creativesecurity.bypass.damage.animal.chicken: true
+      creativesecurity.bypass.damage.animal.squid: true
+      creativesecurity.bypass.damage.animal.wolf: true
+      creativesecurity.bypass.damage.animal.rabbit: true
+      creativesecurity.bypass.damage.animal.bear: true
+      creativesecurity.bypass.damage.animal.llama: true
+      creativesecurity.bypass.damage.animal.parrot: true
+      creativesecurity.bypass.damage.animal.bat: true
+      creativesecurity.bypass.damage.animal.ocelot: true
+
+  creativesecurity.bypass.damage.animal.cow.*:
+    description: Allows to damage all cows in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.damage.animal.cow: true
+      creativesecurity.bypass.damage.animal.cow.mushroom: true
+
+  creativesecurity.bypass.damage.animal.horse.*:
+    description: Allows to damage all horses in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.damage.animal.horse.donkey: true
+      creativesecurity.bypass.damage.animal.horse.mule: true
+      creativesecurity.bypass.damage.animal.horse: true
+
+  creativesecurity.bypass.damage.animal.horse.donkey:
+    description: Allows to damage donkeys in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.horse.mule:
+    description: Allows to damage mules in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.horse:
+    description: Allows to damage horses in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.cow:
+    description: Allows to damage cows in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.cow.mushroom:
+    description: Allows to damage mushroom cows in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.pig:
+    description: Allows to damage pigs in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.sheep:
+    description: Allows to damage sheeps in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.chicken:
+    description: Allows to damage chickens in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.squid:
+    description: Allows to damage squids in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.wolf:
+    description: Allows to damage wolfs in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.rabbit:
+    description: Allows to damage rabbits in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.bear:
+    description: Allows to damage bears in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.llama:
+    description: Allows to damage llamas in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.parrot:
+    description: Allows to damage parrots in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.bat:
+    description: Allows to damage bats in creative mode
+    default: false
+  creativesecurity.bypass.damage.animal.ocelot:
+    description: Allows to damage ocelots in creative mode
+    default: false
+
+  creativesecurity.bypass.damage.boss.*:
+    description: Allows to damage all bosses in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.damage.boss.elderguardian: true
+      creativesecurity.bypass.damage.boss.evoker: true
+      creativesecurity.bypass.damage.boss.illusioner: true
+      creativesecurity.bypass.damage.boss.dragon: true
+      creativesecurity.bypass.damage.boss.giant: true
+      creativesecurity.bypass.damage.mob.wither: true
+
+  creativesecurity.bypass.damage.boss.elderguardian:
+    description: Allows to damage elder guardians in creative mode
+    default: true
+  creativesecurity.bypass.damage.boss.evoker:
+    description: Allows to damage evokers in creative mode
+    default: true
+  creativesecurity.bypass.damage.boss.illusioner:
+    description: Allows to damage illusioners in creative mode
+    default: true
+  creativesecurity.bypass.damage.boss.dragon:
+    description: Allows to damage ender dragons in creative mode
+    default: true
+  creativesecurity.bypass.damage.boss.giant:
+    description: Allows to damage giants in creative mode
+    default: true
+  creativesecurity.bypass.damage.boss.wither:
+    description: Allows to damage withers in creative mode
+    default: true
+
+  creativesecurity.bypass.damage.mob.skeleton.*:
+    description: Allows to damage all skeletons in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.damage.mob.skeleton: true
+      creativesecurity.bypass.damage.mob.skeleton.wither: true
+      creativesecurity.bypass.damage.mob.skeleton.stray: true
+
+  creativesecurity.bypass.damage.mob.zombie.*:
+    description: Allows to damage all zombies in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.damage.mob.zombie: true
+      creativesecurity.bypass.damage.mob.zombie.husk: true
+      creativesecurity.bypass.damage.mob.zombie.villager: true
+      creativesecurity.bypass.damage.mob.zombie.pigman: true
+
+  creativesecurity.bypass.damage.mob.shulker.*:
+    description: Allows to damage shulkers and its projectile in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.damage.mob.shulker: true
+      creativesecurity.bypass.damage.mob.shulker.bullet: true
+
+  creativesecurity.bypass.damage.mob.horse.*:
+    description: Allow to damage all undead horses in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.damage.mob.horse.skeleton: true
+      creativesecurity.bypass.damage.mob.horse.zombie: true
+
+  creativesecurity.bypass.damage.mob.spider.*:
+    description: Allows to damage all spiders in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.damage.mob.spider: true
+      creativesecurity.bypass.damage.mob.spider.cave: true
+
+  creativesecurity.bypass.damage.mob.*:
+    description: Allows to damage all monsters in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.damage.mob.guardian: true
+      creativesecurity.bypass.damage.mob.skeleton.*: true
+      creativesecurity.bypass.damage.mob.zombie.*: true
+      creativesecurity.bypass.damage.mob.shulker.*: true
+      creativesecurity.bypass.damage.mob.horse.*: true
+      creativesecurity.bypass.damage.mob.vex: true
+      creativesecurity.bypass.damage.mob.vindicator: true
+      creativesecurity.bypass.damage.mob.creeper: true
+      creativesecurity.bypass.damage.mob.spider.*: true
+      creativesecurity.bypass.damage.mob.slime: true
+      creativesecurity.bypass.damage.mob.ghast: true
+      creativesecurity.bypass.damage.mob.enderman: true
+      creativesecurity.bypass.damage.mob.silverfish: true
+      creativesecurity.bypass.damage.mob.blaze: true
+      creativesecurity.bypass.damage.mob.magmacube: true
+      creativesecurity.bypass.damage.mob.witch: true
+
+  creativesecurity.bypass.damage.mob.guardian:
+    description: Allows to damage guardians in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.skeleton:
+    description: Allows to damage skeletons in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.skeleton.wither:
+    description: Allows to damage wither skeletons in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.skeleton.stray:
+    description: Allows to damage strays in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.zombie:
+    description: Allows to damage zombies in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.zombie.husk:
+    description: Allows to damage husks in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.zombie.villager:
+    description: Allows to damage zombie villagers in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.zombie.pigman:
+    description: Allows to damage zombie pigmans in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.shulker.bullet:
+    description: Allows to damage shulker bullets in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.shulker:
+    description: Allows to damage shulkers in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.horse.skeleton:
+    description: Allows to damage skeleton horsoes in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.horse.zombie:
+    description: Allows to damage zombie horses in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.vex:
+    description: Allows to damage vexes in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.vindicator:
+    description: Allows to damage vindicators in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.creeper:
+    description: Allows to damage creepers in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.spider:
+    description: Allows to damage normal spiders in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.spider.cave:
+    description: Allows to damage cave spiders in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.slime:
+    description: Allows to damage slimes in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.ghast:
+    description: Allows to damage ghasts in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.enderman:
+    description: Allows to damage endermans in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.silverfish:
+    description: Allows to damage silverfishes in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.blaze:
+    description: Allows to damage blazes in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.magmacube:
+    description: Allows to damage magma cubes in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.witch:
+    description: Allows to damage witches in creative mode
+    default: false
+  creativesecurity.bypass.damage.mob.endermite:
+    description: Allows to damage endermites in creative mode
+    default: false
+  creativesecurity.bypass.damage.golem.snowman:
+    description: Allows to damage snowman in creative mode
+    default: false
+  creativesecurity.bypass.damage.golem.iron:
+    description: Allows to damage iron golems in creative mode
+    default: false
+  creativesecurity.bypass.damage.structure.endercrystal:
+    description: Allows to damage ender crystals in creative mode
+    default: false
+  creativesecurity.bypass.damage.structure.armorstand:
+    description: Allows to damage armor stands in creative mode
+    default: false
+  creativesecurity.bypass.damage.villager:
+    description: Allows to damage villagers in creative mode
+    default: false
+  creativesecurity.bypass.damage.player:
+    description: Allows to damage other players in creative mode
+    default: false
+
+  creativesecurity.bypass.damage.structure.*:
+    description: Allows to damage structural entities like armor stands and paintings in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.damage.structure.endercrystal: true
+      creativesecurity.bypass.damage.structure.armorstand: true
+
+  creativesecurity.bypass.damage.golem.*:
+    description: Allows to damage golems in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.damage.golem.snowman: true
+      creativesecurity.bypass.damage.golem.iron: true
+
+  creativesecurity.bypass.action.*:
+    description: Allows to execute all banned actions in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.action.drop: true
+      creativesecurity.bypass.action.pickup: true
+      creativesecurity.bypass.action.pickupsurvival: true
+      creativesecurity.bypass.action.feed: true
+      creativesecurity.bypass.action.feedzombie: true
+      creativesecurity.bypass.action.saddle: true
+      creativesecurity.bypass.action.spawncreativeblocked: true
+      creativesecurity.bypass.action.leash: true
+      creativesecurity.bypass.action.milk: true
+      creativesecurity.bypass.action.mooshroom: true
+      creativesecurity.bypass.action.shearsheep: true
+      creativesecurity.bypass.action.shearsnowman: true
+      creativesecurity.bypass.action.applynametag: true
+      creativesecurity.bypass.action.createmob: true
+      creativesecurity.bypass.action.bonemeal: true
+      creativesecurity.bypass.action.plant: true
+      creativesecurity.bypass.action.placemobspawner: true
+      creativesecurity.bypass.action.placesilverfishblock: true
+
+
+  creativesecurity.bypass.inventory.*:
+    description: Alloes to open all inventories in creative mode
+    default: false
+    children:
+      creativesecurity.bypass.inventory.doublechest: true
+      creativesecurity.bypass.inventory.chest: true
+      creativesecurity.bypass.inventory.dispenser: true
+      creativesecurity.bypass.inventory.furnace: true
+      creativesecurity.bypass.inventory.workbench: true
+      creativesecurity.bypass.inventory.enchanting: true
+      creativesecurity.bypass.inventory.villager: true
+      creativesecurity.bypass.inventory.enderchest: true
+      creativesecurity.bypass.inventory.anvil: true
+      creativesecurity.bypass.inventory.beacon: true
+      creativesecurity.bypass.inventory.hopper: true
+      creativesecurity.bypass.inventory.shulkerbox: true
+      creativesecurity.bypass.inventory.mule: true
+      creativesecurity.bypass.inventory.donkey: true
+      creativesecurity.bypass.inventory.horse: true
+      creativesecurity.bypass.inventory.storageminecart: true
+      creativesecurity.bypass.inventory.hopperminecart: true
+      creativesecurity.bypass.inventory.armorstand: true
+      creativesecurity.bypass.inventory.itemframe.survival: true
+      creativesecurity.bypass.inventory.itemframe.creative: true
+
+  creativesecurity.bypass.action.placemobspawner:
+    description: Allows players in creative mode to place mob spawners
+    default: false
+  creativesecurity.bypass.action.placesilverfishblock:
+    description: Allows players in creative mode to place monster eggs block, which spawns silverfish when it is broken
+    default: false
+
+  creativesecurity.bypass.action.drop:
+    description: Allows to drop itens in creative mode
+    default: false
+  creativesecurity.bypass.action.pickup:
+    description: Allows to pickup itens in creative mode
+    default: false
+  creativesecurity.bypass.action.pickupsurvival:
+    description: Allows to pickup creative items in non-creative mode
+    default: false
+  creativesecurity.bypass.action.feed:
+    description: Allows creative players to feed animals
+    default: false
+  creativesecurity.bypass.action.feedzombie:
+    description: Allows creative players to feed zombies with golden apple
+    default: false
+  creativesecurity.bypass.action.saddle:
+    description: Allows creative players to saddle pigs
+    default: false
+  creativesecurity.bypass.action.spawncreativeblocked:
+    description: Allows creative players to spawn items in creative mode which are marked as blocked from creative spawn in the config file
+    default: false
+  creativesecurity.bypass.action.leash:
+    description: Allows creative players to leash entities
+    default: false
+  creativesecurity.bypass.action.milk:
+    description: Allows players in creative mode to collect milk from cows
+    default: false
+  creativesecurity.bypass.action.mooshroom:
+    description: Allows players in creative mode to collect musroom soap from mushroom cows
+    default: false
+  creativesecurity.bypass.action.shearsheep:
+    description: Allows players in creative mode to collect wool from sheeps
+    default: false
+  creativesecurity.bypass.action.shearsnowman:
+    description: Allows players in creative mode to remove the pumpkin from snowmans
+    default: false
+  creativesecurity.bypass.action.applynametag:
+    description: Allows players in creative mode to apply name tags to entities
+    default: false
+  creativesecurity.bypass.action.createmob:
+    description: Allows players in creative mode to create mobs which formed by blocks
+    default: false
+  creativesecurity.bypass.action.bonemeal:
+    description: Allows to apply bone meal in creative mode
+    default: false
+  creativesecurity.bypass.action.plant:
+    description: Allows to plant in creative mode
+    default: false
+
+  creativesecurity.bypass.inventory.itemframe.survival:
+    description: Allows players in creative mode to change/break item frames placed in non-creative mode
+    default: false
+  creativesecurity.bypass.inventory.itemframe.creative:
+    description: Allows players in non-creative mode to change/break item frams placed in creative mode
+    default: false
+  creativesecurity.bypass.inventory.armorstand:
+    description: Allows players in creative mode to break and/or modify the items stored in armor stands which were placed in non-creative mode
+    default: false
+  creativesecurity.bypass.inventory.doublechest:
+    description: Allows to open double chests in creative mode
+    default: false
+  creativesecurity.bypass.inventory.chest:
+    description: Allows to open single chests in creative mode
+    default: false
+  creativesecurity.bypass.inventory.dispenser:
+    description: Allows to open dispensers in creative mode
+    default: false
+  creativesecurity.bypass.inventory.furnace:
+    description: Allows to open furnaces in creative mode
+    default: false
+  creativesecurity.bypass.inventory.workbench:
+    description: Allows to open crafting tables in creative mode
+    default: false
+  creativesecurity.bypass.inventory.enchanting:
+    description: Allows to open enchanting tables in creative mode
+    default: false
+  creativesecurity.bypass.inventory.villager:
+    description: Allows to trade with villagers in creative mode
+    default: false
+  creativesecurity.bypass.inventory.enderchest:
+    description: Allows to open ender chests in creative mode
+    default: false
+  creativesecurity.bypass.inventory.anvil:
+    description: Allows to open anvils in creative mode
+    default: false
+  creativesecurity.bypass.inventory.beacon:
+    description: Allows to open beacons in creative mode
+    default: false
+  creativesecurity.bypass.inventory.hopper:
+    description: Allows to open hoppers in creative mode
+    default: false
+  creativesecurity.bypass.inventory.shulkerbox:
+    description: Allows to open shulker boxes in creative mode
+    default: false
+  creativesecurity.bypass.inventory.mule:
+    description: Allows to open mule inventory in creative mode
+    default: false
+  creativesecurity.bypass.inventory.donkey:
+    description: Allows to donkey inventory in creative mode
+    default: false
+  creativesecurity.bypass.inventory.horse:
+    description: Allows to horse inventory in creative mode
+    default: false
+  creativesecurity.bypass.inventory.storageminecart:
+    description: Allows to open storage minecarts in creative mode
+    default: false
+  creativesecurity.bypass.inventory.hopperminecart:
+    description: Allows to open hopper minecarts in creative mode
+    default: false
+
+  creativesecurity.cmd.*:
+    description: Allows to execute all commands from this plugin
+    default: false
+    children:
+      creativesecurity.cmd.creative.*: true
+      creativesecurity.cmd.survival.*: true
+      creativesecurity.cmd.mark: true
+      creativesecurity.cmd.unmark: true
+      creativesecurity.cmd.reload: true
+
+  creativesecurity.cmd.creative.*:
+    description: Allows to change to all creative inventories
+    default: false
+    children:
+      creativesecurity.cmd.creative.gmm1: true
+      creativesecurity.cmd.creative.gmm2: true
+      creativesecurity.cmd.creative.gmm3: true
+      creativesecurity.cmd.creative.gmm4: true
+      creativesecurity.cmd.creative.gmm5: true
+      creativesecurity.cmd.creative.gmm6: true
+      creativesecurity.cmd.creative.gmm7: true
+      creativesecurity.cmd.creative.gmm8: true
+      creativesecurity.cmd.creative.gmm9: true
+      creativesecurity.cmd.creative.gmm10: true
+
+  creativesecurity.cmd.mark:
+    description: Allows to mark survival items as creative
+    default: false
+  creativesecurity.cmd.unmark:
+    description: Allows to mark creative items as survival
+    default: false
+  creativesecurity.cmd.reload:
+    description: Allows to execute the /creativesecurityreload command to reload the messages and configurations
+    default: false
+  creativesecurity.cmd.creative.gmm1:
+    description: Allows to change to the creative inventory number 1
+    default: false
+  creativesecurity.cmd.creative.gmm2:
+    description: Allows to change to the creative inventory number 2
+    default: false
+  creativesecurity.cmd.creative.gmm3:
+    description: Allows to change to the creative inventory number 3
+    default: false
+  creativesecurity.cmd.creative.gmm4:
+    description: Allows to change to the creative inventory number 4
+    default: false
+  creativesecurity.cmd.creative.gmm5:
+    description: Allows to change to the creative inventory number 5
+    default: false
+  creativesecurity.cmd.creative.gmm6:
+    description: Allows to change to the creative inventory number 6
+    default: false
+  creativesecurity.cmd.creative.gmm7:
+    description: Allows to change to the creative inventory number 7
+    default: false
+  creativesecurity.cmd.creative.gmm8:
+    description: Allows to change to the creative inventory number 8
+    default: false
+  creativesecurity.cmd.creative.gmm9:
+    description: Allows to change to the creative inventory number 9
+    default: false
+  creativesecurity.cmd.creative.gmm10:
+    description: Allows to change to the creative inventory number 10
+    default: false
+
+  creativesecurity.cmd.survival.*:
+    description: Allows to change to all survival inventories
+    default: false
+    children:
+      creativesecurity.cmd.survival.gsm1: true
+      creativesecurity.cmd.survival.gsm2: true
+      creativesecurity.cmd.survival.gsm3: true
+      creativesecurity.cmd.survival.gsm4: true
+      creativesecurity.cmd.survival.gsm5: true
+      creativesecurity.cmd.survival.gsm6: true
+      creativesecurity.cmd.survival.gsm7: true
+      creativesecurity.cmd.survival.gsm8: true
+      creativesecurity.cmd.survival.gsm9: true
+      creativesecurity.cmd.survival.gsm10: true
+
+  creativesecurity.cmd.survival.gsm1:
+    description: Allows to change to the survival inventory number 1
+    default: false
+  creativesecurity.cmd.survival.gsm2:
+    description: Allows to change to the survival inventory number 2
+    default: false
+  creativesecurity.cmd.survival.gsm3:
+    description: Allows to change to the survival inventory number 3
+    default: false
+  creativesecurity.cmd.survival.gsm4:
+    description: Allows to change to the survival inventory number 4
+    default: false
+  creativesecurity.cmd.survival.gsm5:
+    description: Allows to change to the survival inventory number 5
+    default: false
+  creativesecurity.cmd.survival.gsm6:
+    description: Allows to change to the survival inventory number 6
+    default: false
+  creativesecurity.cmd.survival.gsm7:
+    description: Allows to change to the survival inventory number 7
+    default: false
+  creativesecurity.cmd.survival.gsm8:
+    description: Allows to change to the survival inventory number 8
+    default: false
+  creativesecurity.cmd.survival.gsm9:
+    description: Allows to change to the survival inventory number 9
+    default: false
+  creativesecurity.cmd.survival.gsm10:
+    description: Allows to change to the survival inventory number 10
+    default: false
+
+commands:
+  gmm1:
+    permission: creativesecurity.cmd.creative.gmm1
+    description: Changes to the creative inventory number 1
+  gmm2:
+    permission: creativesecurity.cmd.creative.gmm2
+    description: Changes to the creative inventory number 2
+  gmm3:
+    permission: creativesecurity.cmd.creative.gmm3
+    description: Changes to the creative inventory number 3
+  gmm4:
+    permission: creativesecurity.cmd.creative.gmm4
+    description: Changes to the creative inventory number 4
+  gmm5:
+    permission: creativesecurity.cmd.creative.gmm5
+    description: Changes to the creative inventory number 5
+  gmm6:
+    permission: creativesecurity.cmd.creative.gmm6
+    description: Changes to the creative inventory number 6
+  gmm7:
+    permission: creativesecurity.cmd.creative.gmm7
+    description: Changes to the creative inventory number 7
+  gmm8:
+    permission: creativesecurity.cmd.creative.gmm8
+    description: Changes to the creative inventory number 8
+  gmm9:
+    permission: creativesecurity.cmd.creative.gmm9
+    description: Changes to the creative inventory number 9
+  gmm10:
+    permission: creativesecurity.cmd.creative.gmm10
+    description: Changes to the creative inventory number 10
+  gsm1:
+    permission: creativesecurity.cmd.survival.gsm1
+    description: Changes to the survival inventory number 1
+  gsm2:
+    permission: creativesecurity.cmd.survival.gsm2
+    description: Changes to the survival inventory number 2
+  gsm3:
+    permission: creativesecurity.cmd.survival.gsm3
+    description: Changes to the survival inventory number 3
+  gsm4:
+    permission: creativesecurity.cmd.survival.gsm4
+    description: Changes to the survival inventory number 4
+  gsm5:
+    permission: creativesecurity.cmd.survival.gsm5
+    description: Changes to the survival inventory number 5
+  gsm6:
+    permission: creativesecurity.cmd.survival.gsm6
+    description: Changes to the survival inventory number 6
+  gsm7:
+    permission: creativesecurity.cmd.survival.gsm7
+    description: Changes to the survival inventory number 7
+  gsm8:
+    permission: creativesecurity.cmd.survival.gsm8
+    description: Changes to the survival inventory number 8
+  gsm9:
+    permission: creativesecurity.cmd.survival.gsm9
+    description: Changes to the survival inventory number 9
+  gsm10:
+    permission: creativesecurity.cmd.survival.gsm10
+    description: Changes to the survival inventory number 10
+  mark:
+    permission: creativesecurity.cmd.mark
+    description: Marks an item as creative
+  unmark:
+    permission: creativesecurity.cmd.unmark
+    description: Unmark an item as creative
+  creativesecurityreload:
+    permission: creativesecurity.cmd.reload
+    description: Reloads the messages and configurations
+    
+    
+    
+    
+Когда вы устанавливаете в конфигурации WorldEdit-Intergration: тогда вы можете выбрать 3 различных варианта.
+
+0 отключено, WorldEdit сможет создавать призрачные метки, и блоки, размещенные с его помощью, не будут помечены.
+Пример 1. Творческий игрок строит дом. Администратор выбирает его и делает //set 0. CreativeSecurity по-прежнему будет думать,
+что дом там.
+
+Пример 2: Администратор делает //pos1 и //pos2 в воздухе, выбирая пол 5x5, а затем запускает гравий //set. Пол 5х5 и падающий
+гравий не будут отмечены.
+
+1 быстрый режим. Все блоки, к которым прикоснулся WorldEdit, будут отмечены (или не отмечены, если это воздушный или неотслеживаемый
+блок)
+Пример 1: игрок на выживание создает стену из дерева 3х3. Администратор выбирает нижнюю часть стены и расширяет ее до 12x12,
+используя тот же блок. Вся стена будет помечена администратором.
+
+Пример 2: Администратор делает //pos1 и //pos2 в воздухе, выбирая пол 5x5, а затем запускает гравий //set. Этаж 5х5 будет отмечен.
+Гравий упадет в следующем тике, и CreativeSecurity переместит метку в падающий блок. Через несколько секунд гравий приземлится куда-то,
+упадет или будет уничтожен, CreativeSecurity соответствующим образом обработает это. В конце концов, CreativeSecurity будет точно знать, что случилось с блоками гравия, и все отметки будут правильными, без побочных отметок.
+
+Пример 3: игрок делает //pos1 и //pos2 и строит 20 снеговиков, используя //set snowblock и //set pumpkin. CreativeSecurity
+не будет обнаруживать формирующиеся объекты, поэтому снеговики будут появляться как выживающие существа. Блоки будут оставаться
+отмеченными, даже если они были израсходованы и теперь содержат воздух.
+
+2 режима проверки. Только блоки, которые фактически изменены, отмечены.
+Пример 1: игрок на выживание создает стену из дерева 3х3. Администратор выбирает нижнюю часть стены и расширяет ее до 12x12,
+используя тот же блок. Блоки 3х3 все равно будут выживать, остальные блоки будут помечены как креативные. Но если администратор
+изменит блок на кирпичи, то вся стена будет помечена как креативная.
+
+Пример 2: То же, что и в быстром режиме
+
+Пример 3: То же, что и в быстром режиме
+
+3расширенный режим. То же, что 2, но также проверит гравитацию и физику.
+Пример 1: То же, что и 2
+
+Пример 2: То же, что и в быстром режиме.
+
+Пример 3: игрок делает //pos1 и //pos2 и строит 20 снеговиков, используя //set snowblock и //set pumpkin. CreativeSecurity обнаружит
+формируемые сущности и проверит, может ли игрок порождать творческие сущности, если игрок не может, тогда тыквенные блоки не будут
+размещены. Но если игрок может, тогда весь снеговик будет отмечен. Блоки, используемые для их появления, будут правильно помечены.
