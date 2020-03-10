@@ -1,8 +1,8 @@
-This is example how разрешениеs, what which разрешениеs do, and what is setted by default (true or false) разрешениеs with * are parent or boss разрешениеs which means it gives few разрешениеs with only one
+Это пример того, что делают разрешения и что установлено по умолчанию (истина или ложь) разрешения с * являются родительскими или начальными разрешениями, что означает, что он дает несколько разрешений только с одним
  
 разрешениеs:
   creativesecurity.*:
-    описание: Assign all разрешениеs
+    описание: Все разрешения
     default: op
     children:
       creativesecurity.bypass.*: true
